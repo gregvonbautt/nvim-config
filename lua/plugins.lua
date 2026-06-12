@@ -33,6 +33,13 @@ return {
           },
         },
       })
+
+      vim.api.nvim_create_autocmd("VimEnter", {
+        desc = "Always open Neo-tree on startup",
+        callback = function()
+          vim.cmd("Neotree toggle")
+        end,
+      })
     end
   },
 

@@ -7,3 +7,6 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 
 require("bootstrap")
+
+-- Close current buffer with <Leader> + x
+vim.keymap.set("n", "<Leader>x", ":bd<CR>", { silent = true, desc = "Close buffer" })
