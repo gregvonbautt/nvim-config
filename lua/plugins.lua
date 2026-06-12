@@ -10,9 +10,19 @@ return {
 
   {
     "sindrets/diffview.nvim",
-    { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     name = "diffview",
-    priority = 1000
+    priority = 1000,
+    config = function()
+      local dv = require("diffview")
+      dv.setup({
+        -- Force diffview to run git commands relative to the current working directory
+        git_cmd = { "git", "-C", "." },
+      })
+
+      vim.keymap.set('n', '<leader>td', function() vim.cmd("DiffviewOpen") end, { desc = 'Open DiffView' })
+      vim.keymap.set('n', '<leader>tD', function() vim.cmd("DiffviewClose") end, { desc = 'Close DiffView' })
+    end
   },
 
   {
@@ -34,12 +44,18 @@ return {
         },
       })
 
+      local toggle = function()
+        vim.cmd("Neotree toggle")
+      end
+
       vim.api.nvim_create_autocmd("VimEnter", {
         desc = "Always open Neo-tree on startup",
         callback = function()
-          vim.cmd("Neotree toggle")
+          vim.cmd("Neotree show")
         end,
       })
+
+      vim.keymap.set('n', '<leader>tt', toggle, { desc = 'Toggle Neotree' })
     end
   },
 
@@ -57,4 +73,9 @@ return {
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
     end
   },
+
+  {
+   "OXY2DEV/markview.nvim",
+    lazy=false,
+  }
 }
