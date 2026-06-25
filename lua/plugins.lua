@@ -20,8 +20,21 @@ return {
         git_cmd = { "git", "-C", "." },
       })
 
-      vim.keymap.set('n', '<leader>td', function() vim.cmd("DiffviewOpen") end, { desc = 'Open DiffView' })
-      vim.keymap.set('n', '<leader>tD', function() vim.cmd("DiffviewClose") end, { desc = 'Close DiffView' })
+      vim.keymap.set('n', '<leader>td', function()
+        if next(require("diffview.lib").views) ~= nil then
+          vim.cmd("DiffviewClose")
+        else
+          vim.cmd("DiffviewOpen")
+        end
+      end, { desc = 'Toggle DiffView' })
+
+      vim.keymap.set('n', '<leader>th', function()
+        if next(require("diffview.lib").views) ~= nil then
+          vim.cmd("DiffviewClose")
+        else
+          vim.cmd("DiffviewFileHistory %")
+        end
+      end, { desc = 'Toggle file history' })
     end
   },
 
@@ -74,6 +87,19 @@ return {
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+    end
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup({
+        current_line_blame = false,
+      })
+
+      vim.keymap.set("n", "<leader>tb", function()
+        require("gitsigns").toggle_current_line_blame()
+      end, { desc = "Toggle git blame" })
     end
   },
 
