@@ -11,12 +11,6 @@ vim.opt.fillchars:append({ diff = "░" })
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", space = "·", trail = "●", eol = "↩" }
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    vim.api.nvim_set_hl(0, "NonText",    { fg = "#51576d" })
-    vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#51576d" })
-  end,
-})
 
 require("bootstrap")
 
