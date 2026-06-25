@@ -110,6 +110,46 @@ return {
   },
 
   {
+    "folke/noice.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("noice").setup()
+    end
+  },
+
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("bufferline").setup()
+    end
+  },
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = function()
+      local wk = require("which-key")
+      wk.setup()
+      wk.add({
+        { "<leader>f", group = "find" },
+        { "<leader>t", group = "toggle" },
+      })
+    end
+  },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup()
+    end
+  },
+
+  {
    "OXY2DEV/markview.nvim",
     lazy=false,
   }

@@ -5,8 +5,9 @@ vim.cmd("set shiftwidth=2")
 
 vim.opt.termguicolors = true
 vim.opt.number = true
+vim.opt.cmdheight = 0
 
-vim.opt.fillchars:append({ diff = "░" })
+vim.opt.fillchars:append({ diff = "░", eob = " " })
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", space = "·", trail = "●", eol = "↩" }
