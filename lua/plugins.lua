@@ -98,7 +98,13 @@ return {
       })
 
       vim.keymap.set("n", "<leader>tb", function()
-        require("gitsigns").toggle_current_line_blame()
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "gitsigns-blame" then
+            vim.api.nvim_win_close(win, true)
+            return
+          end
+        end
+        require("gitsigns").blame()
       end, { desc = "Toggle git blame" })
     end
   },
