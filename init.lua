@@ -6,10 +6,13 @@ vim.cmd("set shiftwidth=2")
 vim.opt.termguicolors = true
 vim.opt.number = true
 
-vim.fn.sign_define("diffRemoved", { text = "░", texthl = "DiffDelete" })
+vim.opt.fillchars:append({ diff = "░" })
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", space = "·", trail = "●", eol = "↩" }
+
+vim.api.nvim_set_hl(0, "NonText",    { fg = "#51576d" })
+vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#51576d" })
 
 require("bootstrap")
 
