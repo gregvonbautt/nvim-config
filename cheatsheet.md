@@ -37,13 +37,16 @@ Leader = Space
 
 ## Telescope — Find
 
-| Key            | Action            |
-|----------------|-------------------|
-| `<leader>ff`   | Find files        |
-| `<leader>fg`   | Live grep         |
-| `<leader>fb`   | Buffers           |
-| `<leader>fh`   | Help tags         |
-| `<leader>fs`   | Document symbols  |
+| Key            | Action              |
+|----------------|---------------------|
+| `<leader>ff`   | Find files          |
+| `<leader>fg`   | Live grep           |
+| `<leader>fb`   | Buffers             |
+| `<leader>fh`   | Help tags           |
+| `<leader>fs`   | Document symbols    |
+| `<C-p>`        | Toggle preview      |
+| `<C-u>`        | Scroll preview up   |
+| `<C-d>`        | Scroll preview down |
 
 ## File Tree (Neo-tree)
 
@@ -65,7 +68,7 @@ Leader = Space
 |----------------|----------------------------|
 | `<leader>x`    | Close buffer               |
 | `<leader>tw`   | Toggle whitespace chars    |
-| `:LspInfo`     | Show LSP status for buffer |
+| `:checkhealth vim.lsp` | Show LSP status  |
 | `:Mason`       | Manage LSP servers         |
 
 ## Brazil / Bemol Workflow

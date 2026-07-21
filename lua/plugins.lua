@@ -82,6 +82,19 @@ return {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function()
+      require('telescope').setup({
+        defaults = {
+          path_display = { "filename_first" },
+          mappings = {
+            i = {
+              ["<C-p>"] = require('telescope.actions.layout').toggle_preview,
+            },
+            n = {
+              ["<C-p>"] = require('telescope.actions.layout').toggle_preview,
+            },
+          },
+        }
+      })
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
