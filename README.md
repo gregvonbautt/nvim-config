@@ -4,37 +4,71 @@ Leader key: `<Space>`
 
 ## Key Bindings
 
-### Buffers
+### LSP — Code Navigation
 
-| Key | Action |
-|-----|--------|
-| `<Leader>x` | Close current buffer |
+| Key       | Action                          |
+|-----------|---------------------------------|
+| `gd`      | Go to definition                |
+| `gr`      | Find all references             |
+| `gi`      | Go to implementation            |
+| `gy`      | Go to type definition           |
+| `gD`      | Go to declaration               |
+| `K`       | Hover docs / type info          |
+| `<C-o>`   | Jump back (after gd/gr/etc)     |
+| `<C-i>`   | Jump forward                    |
+| `[d`      | Previous diagnostic (error/warn)|
+| `]d`      | Next diagnostic                 |
 
-### Toggle
+### LSP — Refactoring
 
-| Key | Action |
-|-----|--------|
-| `<Leader>tb` | Toggle git blame |
-| `<Leader>tw` | Toggle whitespace visibility |
+| Key            | Action              |
+|----------------|---------------------|
+| `<leader>rn`   | Rename symbol       |
+| `<leader>ca`   | Code action (fixes) |
 
-### File Explorer (Neo-tree)
+### Completion (insert mode)
 
-| Key | Action |
-|-----|--------|
-| `<Leader>tt` | Toggle Neo-tree |
+| Key         | Action                    |
+|-------------|---------------------------|
+| `<C-Space>` | Trigger completion        |
+| `<Tab>`     | Next suggestion           |
+| `<S-Tab>`   | Previous suggestion       |
+| `<CR>`      | Confirm selection         |
+| `<C-d>`     | Scroll docs down          |
+| `<C-u>`     | Scroll docs up            |
 
-### Telescope
+### Telescope — Find
 
-| Key | Action |
-|-----|--------|
-| `<Leader>ff` | Find files |
-| `<Leader>fg` | Live grep |
-| `<Leader>fb` | Buffers |
-| `<Leader>fh` | Help tags |
+| Key            | Action              |
+|----------------|---------------------|
+| `<leader>ff`   | Find files          |
+| `<leader>fg`   | Live grep           |
+| `<leader>fb`   | Buffers             |
+| `<leader>fh`   | Help tags           |
+| `<leader>fs`   | Document symbols    |
+| `<C-p>`        | Toggle preview      |
+| `<C-u>`        | Scroll preview up   |
+| `<C-d>`        | Scroll preview down |
 
-### Diffview
+### File Tree (Neo-tree)
 
-| Key | Action |
-|-----|--------|
-| `<Leader>td` | Toggle DiffView |
-| `<Leader>th` | Toggle file history |
+| Key            | Action            |
+|----------------|-------------------|
+| `<leader>tt`   | Toggle file tree  |
+
+### Git
+
+| Key            | Action             |
+|----------------|--------------------|
+| `<leader>td`   | Toggle diff view   |
+| `<leader>th`   | Toggle file history|
+| `<leader>tb`   | Toggle git blame   |
+
+### General
+
+| Key            | Action                     |
+|----------------|----------------------------|
+| `<leader>x`    | Close buffer               |
+| `<leader>tw`   | Toggle whitespace chars    |
+| `:checkhealth vim.lsp` | Show LSP status   |
+| `:Mason`       | Manage LSP servers         |
