@@ -4,7 +4,7 @@ return {
     name = "catppuccin",
     priority = 1001,
     config = function()
-      vim.cmd([[colorscheme catppuccin-frappe]])
+      vim.cmd([[colorscheme catppuccin-mocha]])
     end
   },
 
@@ -49,6 +49,9 @@ return {
     lazy = false,
     config = function()
       require("neo-tree").setup({
+        window = {
+          position = "current",
+        },
         filesystem = {
           bind_to_cwd = true,
           follow_current_file = {
@@ -60,18 +63,9 @@ return {
         },
       })
 
-      local toggle = function()
+      vim.keymap.set('n', '<leader>tt', function()
         vim.cmd("Neotree toggle")
-      end
-
-      vim.api.nvim_create_autocmd("VimEnter", {
-        desc = "Always open Neo-tree on startup",
-        callback = function()
-          vim.cmd("Neotree show")
-        end,
-      })
-
-      vim.keymap.set('n', '<leader>tt', toggle, { desc = 'Toggle Neotree' })
+      end, { desc = 'Toggle Neotree' })
     end
   },
 
@@ -122,24 +116,6 @@ return {
     end
   },
 
-  {
-    "folke/noice.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    config = function()
-      require("noice").setup()
-    end
-  },
-
-  {
-    "akinsho/bufferline.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("bufferline").setup()
-    end
-  },
 
   {
     "folke/which-key.nvim",
@@ -174,6 +150,9 @@ return {
       require("mason").setup()
     end,
   },
+
+  -- Java LSP (nvim-jdtls, configured in ftplugin/java.lua)
+  { "mfussenegger/nvim-jdtls" },
 
   -- Completion
   {
