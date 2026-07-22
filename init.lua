@@ -9,17 +9,9 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.cmdheight = 0
 
-vim.opt.updatetime = 300
-
-
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = { spacing = 2 },
   float = { border = "rounded" },
-})
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  callback = function()
-    vim.diagnostic.open_float(nil, { focusable = false })
-  end,
 })
 
 vim.opt.fillchars:append({ diff = "░", eob = " " })
@@ -58,6 +50,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<leader>fs", function() require("telescope.builtin").lsp_document_symbols() end, "Find symbols")
     map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
     map("]d", vim.diagnostic.goto_next, "Next diagnostic")
+    map("<leader>e", function() vim.diagnostic.open_float({ border = "rounded" }) end, "Show diagnostic")
     map("<leader>fd", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, "File diagnostics")
     map("<leader>fD", function() require("telescope.builtin").diagnostics() end, "Workspace diagnostics")
   end,

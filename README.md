@@ -35,6 +35,7 @@ Leader key: `<Space>`
 | `<C-i>` | Jump forward |
 | `[d` | Previous diagnostic |
 | `]d` | Next diagnostic |
+| `<leader>e` | Show full diagnostic message |
 
 ### LSP — Refactoring
 

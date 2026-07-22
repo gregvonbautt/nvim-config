@@ -172,8 +172,8 @@ return {
       local cmp = require("cmp")
       cmp.setup({
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = { border = "rounded", winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None" },
+          documentation = { border = "rounded", winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None" },
         },
         snippet = {
           expand = function(args) require("luasnip").lsp_expand(args.body) end,
