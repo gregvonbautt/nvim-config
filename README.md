@@ -6,14 +6,14 @@ Leader key: `<Space>`
 
 | Plugin | What it does |
 |--------|--------------|
-| catppuccin | Colorscheme (frappe variant) |
+| catppuccin | Colorscheme |
 | diffview.nvim | Side-by-side git diffs and file history |
 | neo-tree.nvim | File tree browser (fullscreen, toggled on demand) |
 | telescope.nvim | Fuzzy finder for files, grep, symbols, diagnostics |
 | telescope-fzf-native | Faster sorting for Telescope (C extension) |
 | gitsigns.nvim | Git change indicators in the gutter + blame |
 | which-key.nvim | Shows available keybindings after pressing leader |
-| lualine.nvim | Status line |
+| lualine.nvim | Status line (shows relative file path) |
 | markview.nvim | Renders markdown nicely in-buffer |
 | mason.nvim | Installs and manages LSP servers |
 | nvim-jdtls | Java LSP with multi-project workspace support |
@@ -88,6 +88,7 @@ Leader key: `<Space>`
 
 | Key | Action |
 |-----|--------|
+| `<Esc>` | Clear search highlighting |
 | `<leader>x` | Close current buffer |
 | `<leader>tw` | Toggle whitespace characters |
 | `:Mason` | Manage LSP servers |
@@ -115,18 +116,21 @@ Leader key: `<Space>`
 | `<C-u>` | Half page up |
 | `%` | Jump to matching bracket |
 | `:<number>` | Go to line number |
+| `<C-g>` | Show full file path |
 
 ### Searching
 
 | Key | Action |
 |-----|--------|
-| `/text` | Search forward |
+| `/text` | Search forward (case-insensitive by default) |
 | `?text` | Search backward |
+| `/Text` | Search case-sensitive (uppercase triggers exact match) |
+| `/\ctext` | Force case-insensitive |
+| `/\Ctext` | Force case-sensitive |
 | `n` | Next match |
 | `N` | Previous match |
 | `*` | Search for word under cursor |
-| `:noh` | Clear search highlighting |
-| `<Esc>` | Also clears search in normal mode (Neovim default) |
+| `<Esc>` | Clear search highlighting |
 
 ### Selecting (Visual mode)
 

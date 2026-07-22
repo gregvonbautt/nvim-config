@@ -3,11 +3,15 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.cmdheight = 0
 
 vim.opt.updatetime = 300
+
+
 vim.diagnostic.config({
   virtual_text = false,
   float = { border = "rounded" },
@@ -20,11 +24,14 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 
 vim.opt.fillchars:append({ diff = "░", eob = " " })
 
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = { tab = "→ ", space = "·", trail = "●", eol = "↩" }
 
 
 require("bootstrap")
+
+-- Clear search highlight on Esc
+vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear search highlight" })
 
 -- Close current buffer with <Leader> + x
 vim.keymap.set("n", "<Leader>x", ":bd<CR>", { silent = true, desc = "Close buffer" })
@@ -45,7 +52,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("gr", function() require("telescope.builtin").lsp_references() end, "Find references")
     map("gD", function() require("telescope.builtin").lsp_type_definitions() end, "Go to type definition")
     map("gi", function() require("telescope.builtin").lsp_implementations() end, "Go to implementation")
-    map("K", vim.lsp.buf.hover, "Hover docs")
+    map("K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover docs")
     map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
     map("<leader>ca", vim.lsp.buf.code_action, "Code action")
     map("<leader>fs", function() require("telescope.builtin").lsp_document_symbols() end, "Find symbols")

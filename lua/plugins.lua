@@ -134,7 +134,11 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("lualine").setup()
+      require("lualine").setup({
+        sections = {
+          lualine_c = { { "filename", path = 1 } },
+        },
+      })
     end
   },
 
@@ -167,6 +171,10 @@ return {
     config = function()
       local cmp = require("cmp")
       cmp.setup({
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
         snippet = {
           expand = function(args) require("luasnip").lsp_expand(args.body) end,
         },
