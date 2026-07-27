@@ -11,6 +11,7 @@ Leader key: `<Space>`
 | neo-tree.nvim | File tree browser (fullscreen, toggled on demand) |
 | telescope.nvim | Fuzzy finder for files, grep, symbols, diagnostics |
 | telescope-fzf-native | Faster sorting for Telescope (C extension) |
+| telescope-live-grep-args | Type ripgrep flags directly in live grep prompt |
 | gitsigns.nvim | Git change indicators in the gutter + blame |
 | which-key.nvim | Shows available keybindings after pressing leader |
 | lualine.nvim | Status line (shows relative file path) |
@@ -60,7 +61,7 @@ Leader key: `<Space>`
 | Key | Action |
 |-----|--------|
 | `<leader>ff` | Find files |
-| `<leader>fg` | Live grep (search text across project) |
+| `<leader>fg` | Live grep (supports ripgrep flags inline) |
 | `<leader>fb` | Open buffers |
 | `<leader>fh` | Help tags |
 | `<leader>fs` | Document symbols (current file) |
@@ -70,6 +71,20 @@ Leader key: `<Space>`
 | `<C-u>` | Scroll preview up (inside Telescope) |
 | `<C-d>` | Scroll preview down (inside Telescope) |
 | `<Esc>` | Close Telescope |
+
+#### Live Grep Syntax (ripgrep flags)
+
+Quote your search term, then append flags:
+
+| Example | Effect |
+|---------|--------|
+| `"myFunction" -tjava` | Only in Java files |
+| `"myFunction" -tts` | Only in TypeScript files |
+| `"TODO" -g !**/test/**` | Exclude test directories |
+| `"foo" -g *.json` | Only JSON files |
+| `"foo" -s` | Case sensitive |
+| `"foo" -w` | Whole word only |
+| `"foo" --no-ignore` | Include gitignored files |
 
 ### File Tree (Neo-tree)
 
