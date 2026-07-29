@@ -31,6 +31,7 @@ Leader key: `<Space>`
 | `gr` | Find all references |
 | `gi` | Go to implementation |
 | `gD` | Go to type definition |
+| `gO` | File outline (symbols in file order) |
 | `K` | Hover — show type signature and docs |
 | `<C-o>` | Jump back (after any navigation) |
 | `<C-i>` | Jump forward |
@@ -44,6 +45,7 @@ Leader key: `<Space>`
 |-----|--------|
 | `<leader>rn` | Rename symbol across project |
 | `<leader>ca` | Code action (quick fixes, imports) |
+| `<leader>ci` | Organize imports (Java only) |
 
 ### Completion (insert mode)
 
@@ -64,6 +66,7 @@ Leader key: `<Space>`
 | `<leader>fg` | Live grep (supports ripgrep flags inline) |
 | `<leader>fb` | Open buffers |
 | `<leader>fh` | Help tags |
+| `<leader>fc` | Changed files (git status) |
 | `<leader>fs` | Document symbols (current file) |
 | `<leader>fd` | Diagnostics (current file) |
 | `<leader>fD` | Diagnostics (workspace) |

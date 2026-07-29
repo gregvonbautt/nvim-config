@@ -10,15 +10,8 @@ return {
 
   {
     "sindrets/diffview.nvim",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    name = "diffview",
-    priority = 1000,
     config = function()
-      local dv = require("diffview")
-      dv.setup({
-        -- Force diffview to run git commands relative to the current working directory
-        git_cmd = { "git", "-C", "." },
-      })
+      require("diffview").setup({})
 
       vim.keymap.set('n', '<leader>td', function()
         if next(require("diffview.lib").views) ~= nil then
@@ -46,20 +39,13 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons",
     },
-    lazy = false,
     config = function()
       require("neo-tree").setup({
-        window = {
-          position = "current",
-        },
+        window = { position = "current" },
         filesystem = {
           bind_to_cwd = true,
-          follow_current_file = {
-            enabled = true,
-          },
-          filtered_items = {
-            visible = true,
-          },
+          follow_current_file = { enabled = true },
+          filtered_items = { visible = true },
         },
       })
 
@@ -82,12 +68,8 @@ return {
         defaults = {
           path_display = { "filename_first" },
           mappings = {
-            i = {
-              ["<C-p>"] = require('telescope.actions.layout').toggle_preview,
-            },
-            n = {
-              ["<C-p>"] = require('telescope.actions.layout').toggle_preview,
-            },
+            i = { ["<C-p>"] = require('telescope.actions.layout').toggle_preview },
+            n = { ["<C-p>"] = require('telescope.actions.layout').toggle_preview },
           },
         },
       })
@@ -98,15 +80,14 @@ return {
       vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, { desc = 'Telescope live grep' })
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+      vim.keymap.set('n', '<leader>fc', builtin.git_status, { desc = 'Telescope changed files' })
     end
   },
 
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require("gitsigns").setup({
-        current_line_blame = false,
-      })
+      require("gitsigns").setup()
 
       vim.keymap.set("n", "<leader>tb", function()
         for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -119,7 +100,6 @@ return {
       end, { desc = "Toggle git blame" })
     end
   },
-
 
   {
     "folke/which-key.nvim",
@@ -146,23 +126,15 @@ return {
     end
   },
 
-  {
-   "OXY2DEV/markview.nvim",
-    lazy=false,
-  },
+  { "OXY2DEV/markview.nvim", lazy = false },
 
-  -- Mason (installs LSP servers)
   {
     "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
+    config = function() require("mason").setup() end,
   },
 
-  -- Java LSP (nvim-jdtls, configured in ftplugin/java.lua)
   { "mfussenegger/nvim-jdtls" },
 
-  -- Completion
   {
     "hrsh7th/nvim-cmp",
     dependencies = {

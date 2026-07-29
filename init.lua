@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover docs")
     map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
     map("<leader>ca", vim.lsp.buf.code_action, "Code action")
-    map("<leader>fs", function() require("telescope.builtin").lsp_document_symbols() end, "Find symbols")
+    map("<leader>fs", function() require("telescope.builtin").lsp_document_symbols({ sorting_strategy = "ascending", symbol_width = 45 }) end, "Find symbols")
     map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
     map("]d", vim.diagnostic.goto_next, "Next diagnostic")
     map("<leader>e", function() vim.diagnostic.open_float({ border = "rounded" }) end, "Show diagnostic")

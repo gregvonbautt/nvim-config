@@ -1,3 +1,6 @@
+-- Skip if jdtls is already running for this buffer
+if #vim.lsp.get_clients({ name = "jdtls", bufnr = 0 }) > 0 then return end
+
 local jdtls = require("jdtls")
 local mason_bin = vim.fn.stdpath("data") .. "/mason/bin"
 local home = os.getenv("HOME")
@@ -18,8 +21,10 @@ if not root_dir then return end
 local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
 local eclipse_workspace = home .. "/.cache/jdtls/" .. project_name
 
+local lombok_jar = vim.fn.stdpath("data") .. "/mason/packages/jdtls/lombok.jar"
+
 local config = {
-  cmd = { mason_bin .. "/jdtls", "-data", eclipse_workspace },
+  cmd = { mason_bin .. "/jdtls", "-data", eclipse_workspace, "--jvm-arg=-javaagent:" .. lombok_jar },
   root_dir = root_dir,
   init_options = {
     workspaceFolders = ws_info and ws_info.folders or {},
@@ -42,5 +47,9 @@ local config = {
     },
   },
 }
+
+config.on_attach = function()
+  vim.keymap.set("n", "<leader>ci", function() jdtls.organize_imports() end, { buffer = true, desc = "Organize imports" })
+end
 
 jdtls.start_or_attach(config)
