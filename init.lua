@@ -8,6 +8,7 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.cmdheight = 0
+vim.opt.diffopt = "internal,filler,closeoff"
 
 vim.diagnostic.config({
   virtual_text = { spacing = 2 },

@@ -9,9 +9,16 @@ return {
   },
 
   {
-    "sindrets/diffview.nvim",
+    "dlyongemallo/diffview-plus.nvim",
     config = function()
-      require("diffview").setup({})
+      require("diffview").setup({
+        view = {
+          default = { layout = "diff1_inline" },
+          cycle_layouts = {
+            default = { "diff1_inline", "diff2_horizontal" },
+          },
+        },
+      })
 
       vim.keymap.set('n', '<leader>td', function()
         if next(require("diffview.lib").views) ~= nil then

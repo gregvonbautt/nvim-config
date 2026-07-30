@@ -99,9 +99,12 @@ Quote your search term, then append flags:
 
 | Key | Action |
 |-----|--------|
-| `<leader>td` | Toggle diff view |
+| `<leader>td` | Toggle diff view (inline by default) |
 | `<leader>th` | Toggle file history (current file) |
 | `<leader>tb` | Toggle git blame |
+| `g<C-x>` | Cycle diff layout (inline / split) |
+| `]c` | Next hunk (in diff view) |
+| `[c` | Previous hunk (in diff view) |
 
 ### General
 

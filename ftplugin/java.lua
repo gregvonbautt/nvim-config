@@ -1,4 +1,6 @@
--- Skip if jdtls is already running for this buffer
+-- Skip non-file buffers (diff views, fugitive, etc.) and already-attached buffers
+local bufname = vim.api.nvim_buf_get_name(0)
+if bufname == "" or bufname:match("^diffview://") or bufname:match("^gitsigns://") or not vim.uv.fs_stat(bufname) then return end
 if #vim.lsp.get_clients({ name = "jdtls", bufnr = 0 }) > 0 then return end
 
 local jdtls = require("jdtls")
