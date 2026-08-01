@@ -214,6 +214,9 @@ then `dd` won't affect your clipboard — `"+p` still pastes what you copied.
 | `.` | Repeat last change |
 | `>>` | Indent line |
 | `<<` | Unindent line |
+| `>` | Indent selection (visual mode) |
+| `<` | Unindent selection (visual mode) |
+| `gv` | Reselect last selection |
 
 ### Windows and Buffers
 
