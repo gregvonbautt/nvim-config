@@ -34,6 +34,25 @@ vim.keymap.set("n", "<Leader>tw", function()
   vim.opt.list = not vim.opt.list:get()
 end, { desc = "Toggle whitespace visibility" })
 
+-- Toggle ignore whitespace in diff
+vim.keymap.set("n", "<Leader>ti", function()
+  if vim.tbl_contains(vim.opt.diffopt:get(), "iwhite") then
+    vim.opt.diffopt:remove("iwhite")
+    if next(require("diffview.lib").views) then
+      vim.cmd("DiffviewClose")
+      vim.cmd("DiffviewOpen")
+    end
+    vim.notify("Diff: showing whitespace changes")
+  else
+    vim.opt.diffopt:append("iwhite")
+    if next(require("diffview.lib").views) then
+      vim.cmd("DiffviewClose")
+      vim.cmd("DiffviewOpen --ignore-all-space")
+    end
+    vim.notify("Diff: ignoring whitespace changes")
+  end
+end, { desc = "Toggle diff ignore whitespace" })
+
 -- LSP keymaps (set when a server attaches)
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)

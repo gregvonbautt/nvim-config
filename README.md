@@ -102,6 +102,7 @@ Quote your search term, then append flags:
 | `<leader>td` | Toggle diff view (inline by default) |
 | `<leader>th` | Toggle file history (current file) |
 | `<leader>tb` | Toggle git blame |
+| `<leader>ti` | Toggle ignore whitespace in diff |
 | `g<C-x>` | Cycle diff layout (inline / split) |
 | `]c` | Next hunk (in diff view) |
 | `[c` | Previous hunk (in diff view) |
@@ -170,19 +171,32 @@ Quote your search term, then append flags:
 
 ### Copy / Paste (yank / put)
 
+Clipboard equivalents (use these to interop with system clipboard):
+
+| Action | Keys | Equivalent |
+|--------|------|------------|
+| Copy selection | `"+y` (visual mode) | Ctrl-C |
+| Cut selection | `"+d` (visual mode) | Ctrl-X |
+| Paste | `"+p` | Ctrl-V |
+| Copy line | `"+yy` | — |
+| Cut line | `"+dd` | — |
+
+Internal registers (Vim-only, not system clipboard):
+
 | Key | Action |
 |-----|--------|
 | `y` | Yank (copy) selection |
 | `yy` | Yank entire line |
-| `yw` | Yank word |
 | `p` | Paste after cursor |
 | `P` | Paste before cursor |
-| `d` | Delete (also copies to register) |
+| `d` | Delete (also saves to register — overwrites!) |
 | `dd` | Delete line |
 | `x` | Delete character |
-| `"0p` | Paste from yank register (ignores deletes) |
-| `"+y` | Copy to system clipboard |
-| `"+p` | Paste from system clipboard |
+| `"0p` | Paste last yank (ignores deletes) |
+| `"_dd` | Delete without saving to any register |
+
+Note: `dd`/`d`/`x` overwrite the unnamed register. If you copy with `"+y`,
+then `dd` won't affect your clipboard — `"+p` still pastes what you copied.
 
 ### Editing
 
