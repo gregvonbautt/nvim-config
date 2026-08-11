@@ -28,7 +28,6 @@ Leader key: `<Space>`
 | Key | Action |
 |-----|--------|
 | `gd` | Go to definition |
-| `gr` | Find all references |
 | `gi` | Go to implementation |
 | `gD` | Go to type definition |
 | `gO` | File outline (symbols in file order) |
@@ -64,6 +63,7 @@ Leader key: `<Space>`
 |-----|--------|
 | `<leader>ff` | Find files |
 | `<leader>fg` | Live grep (supports ripgrep flags inline) |
+| `<leader>fr` | Find all references |
 | `<leader>fb` | Open buffers |
 | `<leader>fh` | Help tags |
 | `<leader>fc` | Changed files (git status) |

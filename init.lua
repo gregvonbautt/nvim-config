@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
     end
     map("gd", function() require("telescope.builtin").lsp_definitions() end, "Go to definition")
-    map("gr", function() require("telescope.builtin").lsp_references() end, "Find references")
+    map("<leader>fr", function() require("telescope.builtin").lsp_references() end, "Find references")
     map("gD", function() require("telescope.builtin").lsp_type_definitions() end, "Go to type definition")
     map("gi", function() require("telescope.builtin").lsp_implementations() end, "Go to implementation")
     map("K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover docs")
