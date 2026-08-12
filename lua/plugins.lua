@@ -4,7 +4,7 @@ return {
     name = "catppuccin",
     priority = 1001,
     config = function()
-      vim.cmd([[colorscheme catppuccin-mocha]])
+      vim.cmd([[colorscheme catppuccin-latte]])
     end
   },
 
@@ -134,6 +134,16 @@ return {
   },
 
   { "OXY2DEV/markview.nvim", lazy = false },
+
+  {
+    "echasnovski/mini.indentscope",
+    config = function()
+      require("mini.indentscope").setup({
+        draw = { animation = require("mini.indentscope").gen_animation.none() },
+      })
+      vim.g.miniindentscope_disable = true
+    end,
+  },
 
   {
     "williamboman/mason.nvim",

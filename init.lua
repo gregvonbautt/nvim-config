@@ -29,9 +29,11 @@ vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear search highlight" }
 -- Close current buffer with <Leader> + x
 vim.keymap.set("n", "<Leader>x", ":bd<CR>", { silent = true, desc = "Close buffer" })
 
--- Toggle whitespace visibility
+-- Toggle whitespace visibility and indent guides together
 vim.keymap.set("n", "<Leader>tw", function()
-  vim.opt.list = not vim.opt.list:get()
+  local on = not vim.opt.list:get()
+  vim.opt.list = on
+  vim.g.miniindentscope_disable = not on
 end, { desc = "Toggle whitespace visibility" })
 
 -- Toggle ignore whitespace in diff
