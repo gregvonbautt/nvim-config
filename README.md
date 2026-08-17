@@ -140,6 +140,12 @@ Quote your search term, then append flags:
 | `%` | Jump to matching bracket |
 | `:<number>` | Go to line number |
 | `<C-g>` | Show full file path |
+| `zz` | Scroll so cursor is at middle of screen |
+| `zt` | Scroll so cursor is at top of screen |
+| `zb` | Scroll so cursor is at bottom of screen |
+| `H` | Move cursor to top of viewport |
+| `M` | Move cursor to middle of viewport |
+| `L` | Move cursor to bottom of viewport |
 
 ### Searching
 
