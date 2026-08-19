@@ -32,7 +32,12 @@ return {
         if next(require("diffview.lib").views) ~= nil then
           vim.cmd("DiffviewClose")
         else
-          vim.cmd("DiffviewFileHistory %")
+          local file = vim.fn.expand("%:p")
+          if vim.uv.fs_stat(file) then
+            vim.cmd("DiffviewFileHistory " .. vim.fn.fnameescape(file))
+          else
+            vim.cmd("DiffviewFileHistory")
+          end
         end
       end, { desc = 'Toggle file history' })
     end
