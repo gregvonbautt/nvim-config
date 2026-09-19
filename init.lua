@@ -32,6 +32,9 @@ vim.diagnostic.config({
 
 vim.opt.fillchars:append({ diff = "░", eob = " " })
 
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+
 vim.opt.list = false
 vim.opt.listchars = { tab = "→ ", space = "·", trail = "●", eol = "↩" }
 
