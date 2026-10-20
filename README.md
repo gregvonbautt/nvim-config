@@ -7,7 +7,7 @@ Leader key: `<Space>`
 | Plugin | What it does |
 |--------|--------------|
 | catppuccin | Colorscheme |
-| diffview.nvim | Side-by-side git diffs and file history |
+| diffview-plus.nvim | Side-by-side git diffs and file history |
 | neo-tree.nvim | File tree browser (fullscreen, toggled on demand) |
 | telescope.nvim | Fuzzy finder for files, grep, symbols, diagnostics |
 | telescope-fzf-native | Faster sorting for Telescope (C extension) |

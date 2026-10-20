@@ -141,7 +141,7 @@ return {
   { "OXY2DEV/markview.nvim", lazy = false },
 
   {
-    "echasnovski/mini.indentscope",
+    "nvim-mini/mini.indentscope",
     config = function()
       require("mini.indentscope").setup({
         draw = { animation = require("mini.indentscope").gen_animation.none() },
@@ -151,7 +151,7 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     config = function() require("mason").setup() end,
   },
 
